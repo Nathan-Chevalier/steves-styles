@@ -4,6 +4,7 @@ class Clothing:
         self.color = color
         self.price = price
         self.__sku = sku
+        self.season = "All"
 
     @property
     def sku(self):
