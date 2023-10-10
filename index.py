@@ -1,5 +1,6 @@
-from clothes.clothing import Clothing
+from clothing import Sweater
 
-shirt = Clothing("Shirt", "Blue", 300, "ABCD1234")
+sweater = Sweater("Winter Sweater", "Red", 49.99, "Wool", "ABC123")
 
-print(shirt.sku)
+print(sweater.min_comfort)
+print(sweater.max_comfort)
