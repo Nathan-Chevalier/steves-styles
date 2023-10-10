@@ -1,3 +1,5 @@
 class Youths:
     def __init__(self):
-        self.sizes = ['Y-XS', 'Y-S', 'Y-M', "Y-LG", "Y-XL"]
+        self.sizes.extend(
+            ['Youth XS', 'Youth S', 'Youth M', "Youth LG", "Youth XL"])
+        self.departments.append("Youth Department")
