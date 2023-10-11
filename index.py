@@ -1,6 +1,6 @@
 from clothing import Sweater, Shorts
 
-sweater = Sweater("Winter Sweater", "Red", "Banana", "Wool", "ABC123")
+sweater = Sweater("Winter Sweater", "Red", 59.99, "Wool", "ABC123")
 shorts = Shorts("Swim Trunks", "Blue & White Paisley", 79.99, "Silk", "556227")
 
 # print(sweater)

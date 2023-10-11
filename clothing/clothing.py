@@ -1,13 +1,27 @@
 class Clothing:
     def __init__(self, name, color, price, material, sku):
+        # Checks to see if the initialized value of name is a string
+        if not isinstance(name, str):
+            raise TypeError('Please input a string for name')
         self.name = name
+        # Checks to see if the initialized value of name is a string
+        if not isinstance(color, str):
+            raise TypeError('Please input a string for color')
         self.color = color
-        if type(price) not in (int, float):
+        # Checks to see if the price is an integer or float
+        if not isinstance(price, (float, int)):
             raise TypeError('Please input an integer or float for price')
         self.__price = price
+        if not isinstance(sku, (str, int)):
+            raise TypeError('Please input an alphanumeric value for SKU')
         self.__sku = sku
+        # Checks to see if the initialized value of name is a string
+        if not isinstance(material, str):
+            raise TypeError('Please input a string for material')
         self.material = material
         self.seasons = []
+        self.min_comfort = []
+        self.max_comfort = []
         self.sizes = []
         self.departments = []
 
@@ -26,7 +40,9 @@ class Clothing:
                 string += f"\t* {season}\n"
             return string
 
-    def sale(self, percentage):
+    def sale(self, percentage):  # Displays and sets the discount price based on percentage
+        if type(percentage) not in (int, float):
+            raise TypeError('Please input an integer or float for price')
         percentage = percentage * 0.01
         discount = self.price * percentage
         discount = round(discount, 2)
@@ -44,25 +60,25 @@ class Clothing:
         except AttributeError:
             return 0
 
-    @price.setter
+    @price.setter  # Ensures that when price is set it must be an int or float
     def price(self, new_price):
         if type(new_price) is float or type(new_price) is int:
             self.__price = new_price
         else:
             raise TypeError('Please input a number for price')
 
-    @property
-    def sku(self):
-        return self.__sku
-
-    @property
+    @property  # Returns available sizes, returns "All sizes" if no size or all sizes are specified
     def available_sizes(self):
-        if len(self.departments) > 0 and len(self.departments) < 3:
+        if len(self.departments) > 0 and len(self.departments) < 4:
             print(f'The {self.name} is available in the following sizes:')
             for size in self.sizes:
                 print(f'\t* {size}')
         else:
             print(f'The {self.name} is available in all sizes!')
+
+    @property
+    def sku(self):
+        return self.__sku
 
     @sku.setter  # Ensures SKU cannot be overridden once initialized
     def sku(self, num):
